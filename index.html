@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TODO app</title>
 </head>
+<script>
+    function onPress() {
+
+        function parsedResponse(data) {
+            console.log(data);
+        }
+
+        function callback(resp) {
+            resp.json().then(parsedResponse);
+        }
+
+        fetch("https://localhost:3003/todos", { method: "GET" }).then(callback)
+    }
+</script>
 
 <body>
-    <div class="container">
-        <div class="todo-app">
-            <h2>To-Do List <img src="images/icon.png"></h2>
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your text">
-                <button>Add</button>
-            </div>
-        </div>
-    </div>
-
-
+    <br><br>
+    Todo title
+    <input type="text" id="title">
+    <br><br>
+    Todo Descriptions
+    <input type="text" id="title">
+    <br><br>
+    <button onclick="onPress()">send todo</button>
 </body>
-
-</html>
